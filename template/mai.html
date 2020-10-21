@@ -1,0 +1,129 @@
+{% load static %}
+{% static  "images" as baseUrl %}
+
+<!DOCTYPE html>
+<html>
+<title>Credit Transfer-</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+
+
+.neon {
+    position: relative;
+    overflow: hidden;
+    filter: brightness(200%);
+}
+
+.text {
+    background-color: black;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    position: relative;
+    user-select: none;
+}
+
+.text::before {
+    content: attr(data-text);
+    position: absolute;
+    color: white;
+    filter: blur(0.02em);
+    mix-blend-mode: difference;
+}
+
+.gradient {
+    position: absolute;
+    background: linear-gradient(45deg, red, gold, lightgreen, gold, red);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mix-blend-mode: multiply;
+}
+
+.spotlight {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(
+            circle,
+            white,
+            transparent 25%
+        ) center / 25% 25%,
+        radial-gradient(
+            circle,
+            white,
+            black 25%
+        ) center / 12.5% 12.5%;
+    animation: light 5s linear infinite;
+    mix-blend-mode: color-dodge;
+}
+
+@keyframes light {
+    to {
+        transform: translate(50%, 50%);
+    }
+}
+header {
+    height: 100vh;
+    display: flex;
+    
+  /**/  background-color:url('{{baseUrl}}/bg.jfif') ;
+}
+body{
+    height: 100vh;
+    display: flex;
+  /**/  background-color: black;
+  background-image: url('{{baseUrl}}/bg.jfif');
+  height: 50vh;
+     background-size: cover;
+	 background-position: center;
+	
+
+}/*
+pos{
+  a
+}
+*/
+  </style>
+  
+<body>
+
+<div class="w3-sidebar w3-bar-block w3-dark-grey w3-animate-left" style="display:none" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-large"  onclick="w3_close()" style=" color: black; ">Exit &times;</button>
+  <a href="Home" class="w3-bar-item w3-button">Home</a>
+  <a href="Info" class="w3-bar-item w3-button">Transfer</a>
+  <a href="TranInfo" class="w3-bar-item w3-button">View</a>
+</div>
+
+<div>
+  <button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
+</div><marquee>
+  <header>
+  <center>
+    <!--<h1 class="glow">
+    -->      <div class="neon">
+        <span class="text" data-text="WELCOME TO CREDIT TRANSFER PORTAL">WELCOME TO CREDIT TRANSFER PORTAL</span>
+        <span class="gradient"></span>
+        <span class="spotlight"></span>
+      </div></center>
+    </header>
+  </marquee>
+ 
+<script>
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+     
+</body>
+</html> 
